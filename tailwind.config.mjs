@@ -6,3 +6,5 @@ export default {
   },
   plugins: [require("@tailwindcss/typography")],
 };
+
+// tailwind config

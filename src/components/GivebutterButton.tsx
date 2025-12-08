@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../styles/global.css";
+//Givebutter embed
 
 const GivebutterButton: React.FC = () => {
   useEffect(() => {

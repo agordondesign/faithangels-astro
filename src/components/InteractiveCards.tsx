@@ -3,9 +3,10 @@ import SocialShare from "./SocialShare";
 import ModalPartner from "./ModalPartner";
 import GivebutterButton from "./GivebutterButton";
 import GivebutterSponsor from "./GivebutterSponsor";
-import { Button } from "./ui/button";
+//import { Button } from "./ui/button";
 import "../styles/global.css";
-import ModalSponsor from "./ModalSponsor";
+//import ModalSponsor from "./ModalSponsor";
+//all custom forms and Givebutter integration
 
 const InteractiveCards: React.FC = () => (
   <div className="relative py-16 lg:py-30 bg-stone-200 w-screen overflow-hidden px-6 lg:px-8">

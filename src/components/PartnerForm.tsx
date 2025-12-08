@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/global.css";
+//partner form
 
 export default function PartnerForm() {
   const [result, setResult] = useState("");

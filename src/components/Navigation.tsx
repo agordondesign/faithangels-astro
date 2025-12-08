@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/global.css";
+//manual menu
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);

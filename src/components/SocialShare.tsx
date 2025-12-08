@@ -1,6 +1,7 @@
 import "../styles/global.css";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+//social media icons
 
 const SocialShare = () => {
   const [showPopup, setShowPopup] = useState(false);

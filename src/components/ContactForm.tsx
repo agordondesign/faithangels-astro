@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/global.css";
+//contact
 
 export default function ContactForm() {
   const [result, setResult] = useState("");

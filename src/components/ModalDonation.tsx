@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/global.css";
 import { Button } from "@/components/ui/button";
 import DonationForm from "./DonationForm";
+//modal donation form
 
 console.log("ModalDonation component mounted");
 

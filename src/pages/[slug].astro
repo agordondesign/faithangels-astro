@@ -5,6 +5,7 @@ import PortableText from "../components/PortableText.astro";
 import Layout from "../layouts/Layout.astro";
 //import PageLayout from "../layouts/PageLayout.astro";
 //import AsideMenu from "../components/AsideMenu.astro";
+// slug - pages
 
 export async function getStaticPaths() {
   const { data: pages } = await client<SanityDocument[]>({

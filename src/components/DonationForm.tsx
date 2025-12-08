@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/global.css";
+//donation form
 
 export default function DonationForm() {
   const [result, setResult] = useState("");
