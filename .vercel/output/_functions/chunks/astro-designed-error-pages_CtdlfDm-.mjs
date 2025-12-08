@@ -12,7 +12,7 @@ const ACTION_QUERY_PARAMS$1 = {
   actionName: "_action"};
 const ACTION_RPC_ROUTE_PATTERN = "/_actions/[...path]";
 
-const __vite_import_meta_env__ = {"ASSETS_PREFIX": undefined, "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "PUBLIC_SANITY_DATASET": "production", "PUBLIC_SANITY_PROJECT_ID": "wwfac1ax", "PUBLIC_WEB3FORMS_KEY": "51cca09f-c6b7-4fb2-9a57-d900b6e4a1c0", "SITE": "http://localhost:4321/", "SSR": true};
+const __vite_import_meta_env__ = {"ASSETS_PREFIX": undefined, "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "PUBLIC_SANITY_DATASET": "production", "PUBLIC_SANITY_PROJECT_ID": "wwfac1ax", "SITE": "http://localhost:4321/", "SSR": true};
 const ACTION_QUERY_PARAMS = ACTION_QUERY_PARAMS$1;
 const codeToStatusMap = {
   // Implemented from IANA HTTP Status Code Registry

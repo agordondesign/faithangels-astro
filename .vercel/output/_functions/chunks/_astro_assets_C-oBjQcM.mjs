@@ -526,7 +526,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_DBzYOLuy.mjs'
+      './sharp_DHF1rn3Y.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -692,7 +692,7 @@ const $$Image = createComponent(async ($$result, $$props, $$slots) => {
   }
   const { class: className, ...attributes } = { ...additionalAttributes, ...image.attributes };
   return renderTemplate`${maybeRenderHead()}<img${addAttribute(image.src, "src")}${spreadAttributes(attributes)}${addAttribute(className, "class")}>`;
-}, "/Users/andregordon/Developer/_CLIENTS/faithangel-astro/node_modules/astro/components/Image.astro", void 0);
+}, "/Users/andregordon/Developer/_CLIENTS/faithangels-astro/node_modules/astro/components/Image.astro", void 0);
 
 const $$Astro$1 = createAstro("http://localhost:4321/");
 const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
@@ -763,7 +763,7 @@ const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
     const srcsetAttribute = props.densities || !props.densities && !props.widths && !useResponsive ? `${image.src}${image.srcSet.values.length > 0 ? ", " + image.srcSet.attribute : ""}` : image.srcSet.attribute;
     return renderTemplate`<source${addAttribute(srcsetAttribute, "srcset")}${addAttribute(mime.lookup(image.options.format ?? image.src) ?? `image/${image.options.format}`, "type")}${spreadAttributes(sourceAdditionalAttributes)}>`;
   })}  <img${addAttribute(fallbackImage.src, "src")}${spreadAttributes(attributes)}${addAttribute(className, "class")}> </picture>`;
-}, "/Users/andregordon/Developer/_CLIENTS/faithangel-astro/node_modules/astro/components/Picture.astro", void 0);
+}, "/Users/andregordon/Developer/_CLIENTS/faithangels-astro/node_modules/astro/components/Picture.astro", void 0);
 
 const mod = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null
@@ -786,7 +786,7 @@ const $$Font = createComponent(($$result, $$props, $$slots) => {
     });
   }
   return renderTemplate`${preload && data.preloadData.map(({ url, type }) => renderTemplate`<link rel="preload"${addAttribute(url, "href")} as="font"${addAttribute(`font/${type}`, "type")} crossorigin>`)}<style>${unescapeHTML(data.css)}</style>`;
-}, "/Users/andregordon/Developer/_CLIENTS/faithangel-astro/node_modules/astro/components/Font.astro", void 0);
+}, "/Users/andregordon/Developer/_CLIENTS/faithangels-astro/node_modules/astro/components/Font.astro", void 0);
 
 const imageConfig = {"endpoint":{"route":"/_image"},"service":{"entrypoint":"astro/assets/services/sharp","config":{}},"domains":[],"remotePatterns":[],"responsiveStyles":false};
 							const getImage = async (options) => await getImage$1(options, imageConfig);
