@@ -1,0 +1,21 @@
+---
+import '../styles/global.css';
+import Head from '../components/Head.astro';
+import { Code } from 'astro:components';
+
+const {siteSettings, ...props } = Astro.props;
+/** This layout is used for suspended pages */
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <Head />
+	<body>
+	<section class="flex flex-col items-center justify-center h-screen mx-auto max-w-5xl">
+		<div class="flex flex-col items-center justify-center h-auto mx-auto max-w-5xl">
+			<h1 class="text-4xl font-bold">Uh Ooh!</h1>
+			<p class="text-lg text-gray-600">This site temporarily suspended due to maintenance.</p>
+		</div>
+	</section>
+	</body>
+</html>

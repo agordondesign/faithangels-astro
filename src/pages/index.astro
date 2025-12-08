@@ -1,11 +1,52 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Masthead from "../components/Masthead.astro";
+import Layout from "../layouts/Layout.astro";
+import InteractiveCards from "../components/InteractiveCards";
+import Contact from "@/components/Contact.astro";
+import Newsletter from "@/components/Newsletter.astro";
+import Testimonial from "@/components/Testimonial.astro";
+import SupportSection from "@/components/SupportSection.astro";
+import About from "@/components/About.astro";
+import EmergencyRelief from "@/components/EmergencyRelief.astro";
+import DonationList from "@/components/DonationList.astro";
+//import { Button } from "@/components/ui/button";
+//import { Image } from "astro:assets";
+//import Footer from "../components/Footer.astro";
+
+//import SuspendedLayout from '../layouts/SuspendedLayout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <div id="home" class="bg-stone-100 w-full mx-auto scroll-mt-30">
+    <div class="w-full">
+      <Masthead />
+    </div>
+  </div>
+  <div
+    class="flex flex-col gap-16 lg:gap-30 bg-stone-50 py-16 lg:py-30 w-screen"
+  >
+    <section id="about" class="scroll-mt-30"><About /></section>
+    <section id="relief" class="scroll-mt-30 lg:scroll-mt-42">
+      <EmergencyRelief />
+    </section>
+  </div>
+  <section id="support" class="scroll-mt-16 lg:scroll-mt-24">
+    <SupportSection />
+  </section>
+  <section id="interactive-cards" class="scroll-mt-16 lg:scroll-mt-24">
+    <InteractiveCards client:visible />
+  </section>
+  <section>
+    <Testimonial />
+  </section>
+  <section>
+    <Newsletter />
+  </section>
+  <DonationList />
+  <section id="contact" class="scroll-mt-16 lg:scroll-mt-24">
+    <Contact />
+  </section>
 </Layout>

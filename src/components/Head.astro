@@ -1,0 +1,50 @@
+---
+/** Head component */
+import { ClientRouter } from "astro:transitions";
+// Example: Construct a canonical URL using your production domain
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// Example: Construct a URL for SEO meta tags using your current domain
+const socialImageURL = new URL("/images/preview.webp", Astro.url);
+import { getSiteSettings } from "../utils/api";
+
+const siteSettings = await getSiteSettings();
+
+//const {settings } = Astro.props;
+//const { title = "My Astro Website", ...props } = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- generator provides the current version of Astro your project is running. -->
+  <meta name="generator" content={Astro.generator} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta
+    name="googlebot-news"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  />
+  <title>{siteSettings.title ? siteSettings.title : "My Astro Website"}</title>
+
+  <!-- Web analytics -->
+
+  <link rel="canonical" href={canonicalURL} />
+  <meta
+    name="description"
+    content="HTML tags are crucial for SEO more than ever before. In this post, I’m sharing the top 10 HTML meta tags you need to know."
+  />
+
+  <!-- Open Graph tags -->
+  <!-- Here, you put the title to which you want to be displayed when your page is linked. -->
+  <meta property="og:title" content="My New Astro Website" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://www.example.com/" />
+  <meta
+    property="og:description"
+    content="Your page’s description. Remember that Facebook will display only about 300 characters of description."
+  />
+  <meta property="og:image" content={socialImageURL} />
+  <meta property="og:image:alt" content="" />
+  <ClientRouter />
+</head>

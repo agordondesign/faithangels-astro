@@ -1,0 +1,94 @@
+---
+import type { SanityDocument } from "@sanity/client";
+import { client } from "../sanity/lib/client";
+import PortableText from "../components/PortableText.astro";
+import Layout from "../layouts/Layout.astro";
+//import PageLayout from "../layouts/PageLayout.astro";
+//import AsideMenu from "../components/AsideMenu.astro";
+
+export async function getStaticPaths() {
+  const { data: pages } = await client<SanityDocument[]>({
+    query: `*[_type == "page"]{ "slug": slug.current, menuLocation, orderRank } | order(orderRank)`,
+  });
+
+  return pages.map(({ slug }) => ({
+    params: { slug },
+  }));
+}
+
+const { params } = Astro;
+
+// Fetch all pages for navigation
+const { data: pages } = await client<SanityDocument[]>({
+  query: `*[_type == "page"]{ title, "slug": slug.current, menuLocation, orderRank } | order(orderRank)`,
+});
+
+// Fetch the current page
+const { data: page } = await client<{
+  title: string;
+  body: any[];
+  publishedAt: string;
+}>({
+  query: `*[_type == "page" && slug.current == $slug][0] {
+    title,
+    body,
+    author->{ name },
+    categories[]->{ title },
+    publishedAt,
+    menuLocation
+  }`,
+  params,
+});
+
+// Generate nav items
+const navItems = pages.map((page) => ({
+  href: `/${page.slug}`,
+  label: page.title,
+  menuLocation: page.menuLocation ?? [],
+}));
+---
+
+<Layout nav={{ items: navItems }}>
+  <div
+    class="flex min-h-screen gap-4 max-w-[80rem] mx-auto px-6 lg:px-8 my-16 lg:my-24"
+  >
+    <main class="flex-1 flex-col gap-4 w-3/4 px-6 border-r border-gray-300">
+      <h1 class="text-3xl font-bold pb-2">{page.title}</h1>
+      <span class="text-sm pb-2">{page.publishedAt}</span>
+      <div class="prose max-w-none prose-h2:font-normal">
+        <PortableText portableText={page.body} />
+      </div>
+      <!-- <button onclick="history.back()">Go Back</button> -->
+    </main>
+    <aside class="sticky top-32 h-screen w-1/4 px-3">
+      <h2 class="text-xl font-bold pb-2">Quick Links</h2>
+      <ul class="text-base">
+        <li class="hover:text-primary-green">
+          <a href="#1-organization-overview">Organization Overview</a>
+        </li>
+        <li class="hover:text-primary-green">
+          <a href="#2-the-problem">The Problem</a>
+        </li>
+        <li class="hover:text-primary-green">
+          <a href="#3-program-goal">Program Goal</a>
+        </li>
+        <li class="hover:text-primary-green">
+          <a href="#4-program-objectives">Program Objectives (12-Month)</a>
+        </li>
+        <li class="hover:text-primary-green">
+          <a href="#5-program-activities">Program Activities</a>
+        </li>
+        <li class="hover:text-primary-green">
+          <a href="#6-expected-impact">Expected Impact</a>
+        </li>
+        <li class="hover:text-primary-green">
+          <a href="#7-organizational-capacity">Organizational Capacity</a>
+        </li>
+        <li class="hover:text-primary-green">
+          <a href="#8-funding-request">Funding Request</a>
+        </li>
+      </ul>
+      <!-- <AsideMenu nav={{ items: navItems }} /> -->
+    </aside>
+  </div>
+</Layout>

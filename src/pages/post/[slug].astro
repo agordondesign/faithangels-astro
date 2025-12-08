@@ -1,0 +1,53 @@
+---
+// ./src/pages/post/[slug].astro
+import type { SanityDocument } from '@sanity/client';
+import { client } from '../../sanity/lib/client';
+import PortableText from '../../components/PortableText.astro';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const { data: posts } = await client<SanityDocument[]>({
+		query: `*[_type == "post"]`,
+	});
+
+	return posts.map(({ slug }) => {
+		return {
+			params: {
+				slug: slug.current,
+			},
+		};
+	});
+}
+
+const { params } = Astro;
+
+const { data: post } = await client<{
+	title: string;
+	localizedTitle: { en: string; fr: string };
+	body: any[];
+	author: { name: string };
+}>({
+	query: `*[_type == "post" && slug.current == $slug][0] {
+  title,
+  localizedTitle {
+    en,
+    fr
+  },
+  body,
+  author->{
+    name
+  },
+  categories[]->{
+    title
+  }
+}`,
+	params,
+});
+---
+
+<Layout>
+	<h1 class="text-2xl font-bold pb-2">A post about {post.title}</h1>
+	<span class="text-sm text-gray-500 pb-2">{post.author.name}</span>
+	<PortableText portableText={post.body} />
+	<button onclick="history.back()">Go Back</button>
+</Layout>

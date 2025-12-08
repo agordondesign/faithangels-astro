@@ -1,0 +1,117 @@
+---
+import PortableTextImage from "./PortableTextImage.astro";
+
+const { portableText } = Astro.props;
+
+// Utility to slugify heading text for anchor IDs
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "");
+}
+
+// Preprocess blocks to add IDs to headings
+const processedBlocks = portableText.map((block) => {
+  if (
+    block._type === "block" &&
+    ["h1", "h2", "h3", "h4"].includes(block.style)
+  ) {
+    const text = block.children.map((child) => child.text).join("");
+    return { ...block, id: slugify(text) };
+  }
+  return block;
+});
+---
+
+<div>
+  {
+    (() => {
+      const output = [];
+      let i = 0;
+      while (i < processedBlocks.length) {
+        const block = processedBlocks[i];
+
+        // Headings
+        if (
+          block._type === "block" &&
+          ["h1", "h2", "h3", "h4"].includes(block.style)
+        ) {
+          if (block.style === "h1") {
+            output.push(
+              <h1 id={block.id}>
+                {block.children.map((child) => child.text).join("")}
+              </h1>,
+            );
+          }
+          if (block.style === "h2") {
+            output.push(
+              <h2 id={block.id}>
+                {block.children.map((child) => child.text).join("")}
+              </h2>,
+            );
+          }
+          if (block.style === "h3") {
+            output.push(
+              <h3 id={block.id}>
+                {block.children.map((child) => child.text).join("")}
+              </h3>,
+            );
+          }
+          if (block.style === "h4") {
+            output.push(
+              <h4 id={block.id}>
+                {block.children.map((child) => child.text).join("")}
+              </h4>,
+            );
+          }
+          i++;
+          continue;
+        }
+
+        // Lists
+        if (block._type === "block" && block.listItem) {
+          // Determine list type (default to ul, you can adjust for ol if needed)
+          const listType = block.level === 1 ? "ul" : "ol";
+          const items = [];
+          while (
+            i < processedBlocks.length &&
+            processedBlocks[i]._type === "block" &&
+            processedBlocks[i].listItem
+          ) {
+            items.push(
+              <li>
+                {processedBlocks[i].children
+                  .map((child) => child.text)
+                  .join("")}
+              </li>,
+            );
+            i++;
+          }
+          output.push(listType === "ul" ? <ul>{items}</ul> : <ol>{items}</ol>);
+          continue;
+        }
+
+        // Paragraphs
+        if (block._type === "block") {
+          output.push(
+            <p>{block.children.map((child) => child.text).join("")}</p>,
+          );
+          i++;
+          continue;
+        }
+
+        // Images
+        if (block._type === "image") {
+          output.push(<PortableTextImage {...block} />);
+          i++;
+          continue;
+        }
+
+        // Other types
+        i++;
+      }
+      return output;
+    })()
+  }
+</div>

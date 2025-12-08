@@ -1,0 +1,23 @@
+---
+import { client } from '../sanity/lib/client';
+
+const query = `*[_type == "post"]{ title, slug }`;
+type Post = {
+	title: string;
+	slug: { current: string };
+};
+const posts = await client({ query });
+const postList = (posts.data as Post[]) ?? [];
+---
+
+<ul>
+	{postList?.length ? (
+		postList.map((post) => (
+			<li>
+				<a href={`/post/${post.slug.current}`}>{post.title}</a>
+			</li>
+		))
+	) : (
+		<li>No posts found</li>
+	)}
+</ul>

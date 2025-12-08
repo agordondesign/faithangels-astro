@@ -1,0 +1,22 @@
+---
+import "../styles/global.css";
+import { getPosts } from "../utils/api";
+
+const posts = await getPosts();
+---
+
+<h1>Post List:</h1>
+<ul>
+  {
+    posts &&
+      posts.length > 0 &&
+      posts.map((post) => (
+        <li>
+          <a href={`/post/${post.slug.current}`}>{post.localizedTitle.en}</a>
+        </li>
+      ))
+  }
+  {(!posts || posts.length === 0) && <li>No posts found</li>}
+</ul>
+<span class="text-xs">end of posts</span>
+<!-- <p>Posts: {JSON.stringify(posts)}</p> -->

@@ -1,0 +1,49 @@
+---
+import "../styles/global.css";
+---
+
+<div
+  class="bg-gradient-to-l from-primary-blue/90 via-primary-blue to-primary-blue-dark w-full max-w-screen mx-auto px-6 lg:px-8"
+>
+  <div class="mx-auto max-w-7xl py-16 lg:py-30 sm:px-6">
+    <div class="mx-auto max-w-2xl text-center text-white">
+      <h2 class="text-white">Sign Up For Our Newsletter</h2>
+
+      <p class="mt-6">
+        Stay connected with our mission and receive meaningful updates on how
+        we’re caring for seniors in need. Get news, stories, and ways you can
+        help make a lasting impact.
+      </p>
+    </div>
+
+    <form
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      class="mx-auto mt-6 flex max-w-xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-center"
+    >
+      <input
+        type="hidden"
+        name="access_key"
+        value="2dfea560-8885-486a-95d8-43385f217dbc"
+      />
+      <label for="Email" class="flex-1">
+        <span class="sr-only"> Email </span>
+        <input
+          type="email"
+          id="Email"
+          name="email"
+          required
+          placeholder="Enter your email"
+          class="text-white px-3 h-12 w-full rounded-lg border border-white/40 placeholder:text-white/40 focus:border-white focus:ring-white"
+        />
+      </label>
+
+      <button
+        type="submit"
+        class="h-12 rounded-lg border border-primary-green bg-primary-green px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-primary-green"
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
+</div>

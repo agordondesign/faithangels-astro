@@ -1,0 +1,59 @@
+---
+import "../styles/global.css";
+import { getLinktree } from "../utils/api";
+import { FaInstagram } from "react-icons/fa6";
+import { FaFacebookF } from "react-icons/fa6";
+
+type Link = {
+  _id: string;
+  url: string;
+  handle: string;
+  priority: boolean;
+  platform: string;
+};
+
+const rawLinktree = await getLinktree();
+// @ts-ignore
+const linktree: Link[] = rawLinktree.map((item) => ({
+  id: item._id,
+  url: item.link?.url ?? "",
+  handle: item.link?.handle ?? "",
+  priority: item.priority === true,
+  platform: item.link.platform,
+}));
+---
+
+<ul class="flex flex-col gap-3 justify-center items-center w-[300px]">
+  {
+    linktree &&
+      linktree.length > 0 &&
+      linktree.map((link) => (
+        <li
+          class={`relative flex justify-center items-center gap-2 w-full h-14 rounded-full ${link.priority ? "bg-niche-brand text-white p-6 text-center font-medium" : "bg-gray-200 text-niche-black p-6 text-center font-medium"}`}
+        >
+          {link.platform === "Instagram" ? (
+            <div class="absolute left-0 pl-6">
+              <FaInstagram />
+            </div>
+          ) : link.platform === "Facebook" ? (
+            <div class="absolute left-0 pl-6">
+              <FaFacebookF />
+            </div>
+          ) : (
+            ""
+          )}
+          <a
+            href={link.url}
+            target="_blank"
+            class="flex justify-center items-center w-full mx-auto text-center"
+          >
+            {link.platform === "Instagram"
+              ? `@${link.handle}`
+              : `${link.handle}`}
+          </a>
+        </li>
+      ))
+  }
+  {(!linktree || linktree.length === 0) && <li>No links found</li>}
+</ul>
+<!-- <p>Posts: {JSON.stringify(posts)}</p> -->

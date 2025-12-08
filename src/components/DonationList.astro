@@ -1,0 +1,289 @@
+---
+import "../styles/global.css";
+import ModalDonation from "./ModalDonation";
+//import { Button } from "./ui/button";
+---
+
+<section
+  class="flex flex-col md:flex-row justify-start items-start gap-8 lg:gap-12 w-full max-w-[80rem] mx-auto py-16 lg:py-30 px-6 lg:px-8"
+>
+  <div class="space-y-4 lg:space-y-6 w-full max-w-lg">
+    <h2>Most Needed Items for Seniors</h2>
+    <p>
+      The devastation left by Hurricane Melissa means that hundreds of seniors
+      lost their personal belongings and medical necessities in an instant. By
+      donating or organizing a drive for the items below, you are helping us
+      restore their dignity, comfort, and health.
+    </p>
+    <ModalDonation client:visible />
+  </div>
+  <div class="space-y-2 w-full">
+    <details class="group [&_summary::-webkit-details-marker]:hidden">
+      <summary
+        class="flex cursor-pointer items-center justify-between gap-4 rounded-lg border border-stone-300 bg-white px-4 py-3 font-normal text-gray-900 hover:bg-stone-50"
+      >
+        <span class="text-xl text-primary-green"
+          >Toiletries & Hygiene Essentials</span
+        >
+
+        <svg
+          class="size-4.5 shrink-0 transition-transform duration-300 group-open:-rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="#610D0D"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+
+      <div class="p-4">
+        <p>
+          <ul>
+            <li>Bath soaps/body wash (gentle, sensitive skin)</li>
+            <li>Deodorants ( gentle, roll-on preferred)</li>
+            <li>Shampoo & Conditioner</li>
+            <li>Body lotion</li>
+            <li>Toothbrush (soft bristle)</li>
+            <li>Toothpaste (sensitive option)</li>
+            <li>Mouthwash (alcohol free)</li>
+            <li>Denture cleaner & denture adhesive</li>
+            <li>Wet Wipes (fragrance free)</li>
+            <li>Hand Sanitizers</li>
+            <li>Washcloths</li>
+            <li>Tissues & paper Towels</li>
+            <li>Adult diapers (various sizes)</li>
+            <li>Incontinence pads/ bed liners</li>
+            <li>Barrier creams</li>
+            <li>Antibiotic Creams</li>
+            <li>Dettol</li>
+            <li>Vaseline/Petroleum jelly</li>
+            <li>Anti-fungal cream/powder</li>
+          </ul>
+        </p>
+      </div>
+    </details>
+
+    <details class="group [&_summary::-webkit-details-marker]:hidden">
+      <summary
+        class="flex cursor-pointer items-center justify-between gap-4 rounded-lg border border-stone-300 bg-white px-4 py-3 font-normal text-gray-900 hover:bg-stone-50"
+      >
+        <span class="text-xl text-primary-green">Hair & Grooming</span>
+
+        <svg
+          class="size-4.5 shrink-0 transition-transform duration-300 group-open:-rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="#610D0D"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+
+      <div class="p-4">
+        <p>
+          <ul>
+            <li>Combs & brushes</li>
+            <li>Hair oil</li>
+            <li>Shaving cream</li>
+            <li>Razors (safety razors preferred)</li>
+            <li>Small mirror</li>
+          </ul>
+        </p>
+      </div>
+    </details>
+
+    <details class="group [&_summary::-webkit-details-marker]:hidden">
+      <summary
+        class="flex cursor-pointer items-center justify-between gap-4 rounded-lg border border-stone-300 bg-white px-4 py-3 font-normal text-gray-900 hover:bg-stone-50"
+      >
+        <span class="text-xl text-primary-green">Sanitary & Cleaning Items</span
+        >
+
+        <svg
+          class="size-4.5 shrink-0 transition-transform duration-300 group-open:-rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="#610D0D"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+
+      <div class="p-4">
+        <p>
+          <ul>
+            <li>Laundry detergent (sensitive skin)</li>
+            <li>Toilet paper</li>
+            <li>Paper Towell</li>
+            <li>Disinfectant wipes</li>
+            <li>Air fresheners (mild)</li>
+            <li>Surface cleaners</li>
+          </ul>
+        </p>
+      </div>
+    </details>
+    <details class="group [&_summary::-webkit-details-marker]:hidden">
+      <summary
+        class="flex cursor-pointer items-center justify-between gap-4 rounded-lg border border-stone-300 bg-white px-4 py-3 font-normal text-gray-900 hover:bg-stone-50"
+      >
+        <span class="text-xl text-primary-green leading-5.5"
+          >Clothing (Gently worn or New)<br /><span
+            class="text-sm text-stone-500 font-normal"
+            >Small, Medium, Large
+          </span></span
+        >
+
+        <svg
+          class="size-4.5 shrink-0 transition-transform duration-300 group-open:-rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="#610D0D"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+
+      <div class="p-4">
+        <p>
+          <ul>
+            <li>T-Shirts (men)</li>
+            <li>Undershirts ( Male & female)</li>
+            <li>Shorts (male)</li>
+            <li>Underwear (new – Male & Female)</li>
+            <li>Skirts</li>
+            <li>Summer Dresses</li>
+            <li>Bed wear ( male & female)</li>
+            <li>Slippers (Male & Female)</li>
+          </ul>
+        </p>
+      </div>
+    </details>
+    <details class="group [&_summary::-webkit-details-marker]:hidden">
+      <summary
+        class="flex cursor-pointer items-center justify-between gap-4 rounded-lg border border-stone-300 bg-white px-4 py-3 font-normal text-gray-900 hover:bg-stone-50"
+      >
+        <span class="text-xl text-primary-green">Beddings</span>
+
+        <svg
+          class="size-4.5 shrink-0 transition-transform duration-300 group-open:-rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="#610D0D"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+
+      <div class="p-4">
+        <p>
+          <ul>
+            <li>Bed Sheets ( twin full and hospital bed sizes)</li>
+            <li>Pillowcases</li>
+            <li>Mattress protectors (waterproof)</li>
+            <li>Bed Pads (washable or disposable)</li>
+            <li>Pillows</li>
+          </ul>
+        </p>
+      </div>
+    </details>
+    <details class="group [&_summary::-webkit-details-marker]:hidden">
+      <summary
+        class="flex cursor-pointer items-center justify-between gap-4 rounded-lg border border-stone-300 bg-white px-4 py-3 font-normal text-gray-900 hover:bg-stone-50"
+      >
+        <span class="text-xl text-primary-green">Food and Nutrition</span>
+
+        <svg
+          class="size-4.5 shrink-0 transition-transform duration-300 group-open:-rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="#610D0D"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+
+      <div class="p-4">
+        <p>
+          <ul>
+            <li>Bottled Water</li>
+            <li>Non-perishable foods (canned goods, crackers, cereals)</li>
+            <li>Meal Replacement drinks (Ensure)</li>
+          </ul>
+        </p>
+      </div>
+    </details>
+    <details class="group [&_summary::-webkit-details-marker]:hidden">
+      <summary
+        class="flex cursor-pointer items-center justify-between gap-4 rounded-lg border border-stone-300 bg-white px-4 py-3 font-normal text-gray-900 hover:bg-stone-50"
+      >
+        <span class="text-xl text-primary-green leading-5.5"
+          >Medical & Mobility Equipment<br /><span
+            class="text-sm text-stone-500 font-normal"
+            >These items make the greatest impact for displaced or medically
+            fragile seniors
+          </span></span
+        >
+
+        <svg
+          class="size-4.5 shrink-0 transition-transform duration-300 group-open:-rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="#610D0D"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+
+      <div class="p-4">
+        <p>
+          <ul>
+            <li>Wheelchairs</li>
+            <li>Walkers</li>
+            <li>Canes</li>
+            <li>Hospital Beds</li>
+            <li>Portable Commodes</li>
+            <li>Shower Chairs & Bath Benches</li>
+            <li>Blood Pressure monitors</li>
+            <li>Glucose machines & test strips</li>
+            <li>First-aid kits</li>
+          </ul>
+        </p>
+      </div>
+    </details>
+  </div>
+</section>

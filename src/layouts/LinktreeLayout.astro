@@ -1,0 +1,47 @@
+---
+import "../styles/global.css";
+import Head from "../components/Head.astro";
+import { Image } from "astro:assets";
+import Footer from "../components/Footer.astro";
+//import FooterSimple from "../components/FooterSimple.astro";
+
+const { siteSettings, ...props } = Astro.props;
+/** This layout is used for suspended pages */
+---
+
+<!doctype html>
+<html lang="en">
+  <Head />
+  <body class="flex flex-col min-h-screen bg-niche-black overflow-x-hidden">
+    <!-- <div
+      class="hidden absolute top-0 left-0 w-screen h-full bg-[url(/svg/Texture-gradient-dots.svg)] bg-contain -z-1 opacity-20"
+    >
+    </div> -->
+    <main class="flex-1">
+      <section
+        class="flex flex-col items-center justify-between mx-auto mt-14 max-w-5xl"
+      >
+        <div
+          class="flex flex-col items-center justify-center gap-6 h-auto mx-auto max-w-5xl"
+        >
+          <Image
+            src="/favicon.svg"
+            alt="Logo dark"
+            width={252.87}
+            height={105.98}
+            priority={true}
+          />
+          <h1 class="text-lg text-center text-white">
+            Trust the process.<br />
+            Experience the Niche difference.
+          </h1>
+          <p class="text-sm text-center text-gray-400">
+            All our social links in one place.
+          </p>
+          <slot />
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
