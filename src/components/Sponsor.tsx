@@ -44,9 +44,7 @@ export default function Sponsor(): JSX.Element {
               <ul className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
                 <li className="flex flex-col justify-between h-full bg-white/80 border border-white/80 py-6 px-4 rounded-lg backdrop-blur-sm shadow-xl">
                   <div className="space-y-4">
-                    <h3 className="text-xl font-medium">
-                      Support Daily Hot Meals
-                    </h3>
+                    <h3 className="text-xl font-medium">Daily Hot Meals</h3>
                     <Button
                       className="w-full"
                       onClick={() => setOpenModal("meals")}
@@ -64,9 +62,7 @@ export default function Sponsor(): JSX.Element {
 
                 <li className="flex flex-col justify-between h-full bg-white/80 border border-white/80 py-6 px-4 rounded-lg backdrop-blur-sm shadow-xl">
                   <div className="space-y-4">
-                    <h3 className="text-xl font-medium">
-                      Sponsor a Food Hamper
-                    </h3>
+                    <h3 className="text-xl font-medium">Food Hamper</h3>
                     <Button
                       className="w-full"
                       onClick={() => setOpenModal("hamper")}
@@ -84,9 +80,7 @@ export default function Sponsor(): JSX.Element {
 
                 <li className="flex flex-col justify-between h-full bg-white/80 border border-white/80 py-6 px-4 rounded-lg backdrop-blur-sm shadow-xl">
                   <div className="space-y-4">
-                    <h3 className="text-xl font-medium">
-                      Sponsor a Hygiene Care Kit
-                    </h3>
+                    <h3 className="text-xl font-medium">Hygiene Care Kit</h3>
                     <Button
                       className="w-full"
                       onClick={() => setOpenModal("hygiene")}

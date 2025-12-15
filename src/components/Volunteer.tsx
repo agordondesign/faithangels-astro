@@ -44,8 +44,17 @@ export default function Volunteer() {
                 <h3 className="text-xl font-medium">Lifeline for a Senior</h3>
                 <p>Combat isolation. Build meaningful connections.</p>
               </div>
+              <Button
+                type="button"
+                onClick={() => setOpenModal("lifeline")}
+                className="w-full"
+              >
+                Be a Lifeline for a Senior
+              </Button>
               <p className="text-base">
-                Volunteers provide:
+                <strong className="font-medium text-primary-brown">
+                  Volunteers provide:
+                </strong>
                 <ul className="list-disc ml-4 text-base">
                   <li>Weekly check-ins (phone or in-person)</li>
                   <li>Delivery of care packages</li>
@@ -54,25 +63,27 @@ export default function Volunteer() {
                 </ul>
               </p>
             </div>
-            <Button
-              type="button"
-              onClick={() => setOpenModal("lifeline")}
-              className="w-full"
-            >
-              Be a Lifeline for a Senior
-            </Button>
           </div>
           {/* Meals of Love Program */}
           <div className="flex flex-col gap-6 justify-between w-full p-4 lg:p-6 border border-white rounded-lg bg-stone-100/50 shadow-xl">
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div className="space-y-4">
                 <h3 className="text-xl font-medium">Meals of Love Program</h3>
                 <p>
                   Nourishing bodies and hearts with warm meals and compassion.
                 </p>
               </div>
+              <Button
+                type="button"
+                onClick={() => setOpenModal("meals")}
+                className="w-full"
+              >
+                Join the Meals of Love Team
+              </Button>
               <p className="text-base">
-                We prepare and deliver hot meals to:
+                <strong className="font-medium text-primary-brown">
+                  We prepare and deliver hot meals to:
+                </strong>
                 <ul className="list-disc ml-4 text-base">
                   <li>Seniors living alone</li>
                   <li>Seniors with limited mobility</li>
@@ -80,32 +91,34 @@ export default function Volunteer() {
                 </ul>
               </p>
             </div>
-            <Button
-              type="button"
-              onClick={() => setOpenModal("meals")}
-              className="w-full"
-            >
-              Join the Meals of Love Team
-            </Button>
           </div>
           {/* Home Repair & Rebuilding Assistance */}
           <div className="flex flex-col gap-6 justify-between w-full p-4 lg:p-6 border border-white rounded-lg bg-stone-100/50 shadow-xl">
             <div className="space-y-4">
               <div className="space-y-4">
                 <h3 className="text-xl font-medium">
-                  Home Repair & Rebuilding Assistance
+                  Home Repair & Rebuilding
                 </h3>
                 <p>
                   Restoring safe, livable homes for seniors affected by
                   Hurricane Melissa.
                 </p>
               </div>
+              <Button
+                type="button"
+                onClick={() => setOpenModal("repair")}
+                className="w-full"
+              >
+                Home Repair Volunteer
+              </Button>
               <p className="text-base">
                 Many seniors still live in unsafe or damaged homes. Volunteers
                 and partners work together to restore safety and dignity.
               </p>
               <p className="text-base">
-                Activities include:
+                <strong className="font-medium text-primary-brown">
+                  Activities include:
+                </strong>
                 <ul className="list-disc ml-4 text-base">
                   <li>Supporting seniors with damaged or destroyed homes</li>
                   <li>
@@ -119,13 +132,6 @@ export default function Volunteer() {
                 </ul>
               </p>
             </div>
-            <Button
-              type="button"
-              onClick={() => setOpenModal("repair")}
-              className="w-full"
-            >
-              Volunteer for Home Repair & Rebuilding
-            </Button>
           </div>
         </div>
       </div>
