@@ -16,7 +16,20 @@ const siteSettings = await getSiteSettings();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link
+    rel="icon"
+    href="/logos/favicon-black.svg"
+    media="(prefers-color-scheme: light)"
+    type="image/svg+xml"
+  />
+  <link
+    rel="icon"
+    href="/logos/favicon-white.svg"
+    media="(prefers-color-scheme: dark)"
+    type="image/svg+xml"
+  />
+  <link rel="icon" href="/logos/favicon-black.svg" type="image/svg+xml" />
+
   <!-- generator provides the current version of Astro your project is running. -->
   <meta name="generator" content={Astro.generator} />
   <link rel="sitemap" href="/sitemap-index.xml" />
@@ -47,4 +60,9 @@ const siteSettings = await getSiteSettings();
   <meta property="og:image" content={socialImageURL} />
   <meta property="og:image:alt" content="" />
   <ClientRouter />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+  />
+  <script type="module" src="/src/main.jsx"></script>
 </head>

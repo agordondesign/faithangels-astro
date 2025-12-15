@@ -29,7 +29,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="bg-stone-100 space-y-4 rounded-lg border border-white shadow-xl p-6 max-w-lg"
+      className="bg-white space-y-4 rounded-lg border border-stone-200 shadow-xl p-6 max-w-lg"
     >
       <div>
         <label className="block text-sm font-medium" htmlFor="name">

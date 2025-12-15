@@ -9,6 +9,10 @@ import SupportSection from "@/components/SupportSection.astro";
 import About from "@/components/About.astro";
 import EmergencyRelief from "@/components/EmergencyRelief.astro";
 import DonationList from "@/components/DonationList.astro";
+import Sponsor from "../components/Sponsor.tsx";
+import Volunteer from "@/components/Volunteer.tsx";
+import SpecialThanks from "../components/SpecialThanks.tsx";
+import Swiper from "../components/Swiper.tsx";
 //import { Button } from "@/components/ui/button";
 //import { Image } from "astro:assets";
 //import Footer from "../components/Footer.astro";
@@ -21,7 +25,7 @@ import DonationList from "@/components/DonationList.astro";
 ---
 
 <Layout>
-  <div id="home" class="bg-stone-100 w-full mx-auto scroll-mt-30">
+  <div id="home" class="bg-stone-100 w-full mx-auto scroll-mt-42">
     <div class="w-full">
       <Masthead />
     </div>
@@ -40,13 +44,22 @@ import DonationList from "@/components/DonationList.astro";
   <section id="interactive-cards" class="scroll-mt-16 lg:scroll-mt-24">
     <InteractiveCards client:visible />
   </section>
-  <section>
-    <Testimonial />
+  <section id="sponsor" class="scroll-mt-16 lg:scroll-mt-24">
+    <Sponsor client:load />
   </section>
+  <section id="volunteer" class="scroll-mt-16 lg:scroll-mt-24">
+    <Volunteer client:load />
+  </section>
+  <DonationList />
   <section>
     <Newsletter />
   </section>
-  <DonationList />
+  <section id="impact" class="scroll-mt-16 lg:scroll-mt-24">
+    <Testimonial />
+  </section>
+  <section>
+    <SpecialThanks client:load />
+  </section>
   <section id="contact" class="scroll-mt-16 lg:scroll-mt-24">
     <Contact />
   </section>

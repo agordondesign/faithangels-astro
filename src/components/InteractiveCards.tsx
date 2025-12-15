@@ -9,10 +9,10 @@ import "../styles/global.css";
 //all custom forms and Givebutter integration
 
 const InteractiveCards: React.FC = () => (
-  <div className="relative py-16 lg:py-30 bg-stone-200 w-screen overflow-hidden px-6 lg:px-8">
-    <section className="w-full max-w-[80rem] mx-auto">
+  <div className="relative py-16 lg:py-30 bg-stone-200 w-screen overflow-hidden">
+    <section className="w-full max-w-[80rem] mx-auto px-6 lg:px-8">
       <h2 className="mb-6 lg:mb-12">How You Can Help</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 lg:gap-4">
         {/* Card 1 */}
         <div className="group relative block bg-black rounded-lg overflow-hidden shadow-xl h-[432px]">
           <img

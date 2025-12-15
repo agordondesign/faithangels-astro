@@ -1,0 +1,161 @@
+---
+/*
+  ResponsiveImage.astro
+
+  Usage:
+    - Prefer passing a Sanity image object as `asset`.
+        <ResponsiveImage asset={post.mainImage} alt="..." />
+      The component will build AVIF/WebP srcsets from Sanity and use Astro's <Image /> as fallback.
+    - You may also pass a string path directly via `asset` (or `src`) when you don't have a Sanity object.
+        <ResponsiveImage asset="/images/photo.jpg" alt="..." />
+      This will be treated as a manual URL fallback and the component will attempt a simple extension swap
+      to create .avif/.webp source files (e.g. /images/photo.avif, /images/photo.webp) for the <source> tags.
+    - Optional props:
+        - sizes: string passed to <source> and <Image /> (default "100vw")
+        - widths: array of widths to build srcsets (default [320,640,960,1280,1600,1920])
+        - loading, decoding: forwarded to <Image />
+*/
+
+import "../styles/global.css";
+import { Image } from "astro:assets";
+import { urlForImage } from "../sanity/lib/url-for-image";
+
+type MaybeSanityImage = any; // keep loose to accept different shapes from Sanity
+
+const {
+  // asset may be:
+  //  - a Sanity image object (preferred)
+  //  - a string path (manual fallback)
+  asset = null,
+  // explicit src prop is also supported; asset string takes precedence over src
+  src = null,
+  alt = "",
+  sizes = "100vw",
+  loading = "lazy",
+  decoding = "async",
+  // allow parent to pass a CSS class to control sizing/object-fit
+  class: className = "",
+  widths: propWidths = null,
+} = Astro.props;
+
+// widths used to build responsive srcsets
+const widths = Array.isArray(propWidths)
+  ? propWidths
+  : [320, 640, 960, 1280, 1600, 1920];
+
+let defaultUrl: string | null = null;
+let avifSrcset: string | null = null;
+let webpSrcset: string | null = null;
+let imgWidth: number | undefined = undefined;
+let imgHeight: number | undefined = undefined;
+
+// Helper to determine if a value looks like a Sanity image object
+function looksLikeSanityImage(obj: unknown): obj is MaybeSanityImage {
+  if (!obj || typeof obj !== "object") return false;
+  // common Sanity image fields: asset, _type === 'image', metadata
+  // tolerate either the image field itself or the nested asset object
+  return (
+    ("asset" in (obj as any) && typeof (obj as any).asset === "object") ||
+    ("metadata" in (obj as any) && (obj as any).metadata?.dimensions)
+  );
+}
+
+if (asset) {
+  if (typeof asset === "string") {
+    // asset passed as string path -> treat as manual src
+    defaultUrl = asset;
+  } else if (looksLikeSanityImage(asset)) {
+    // Sanity image object (can be the image field or a nested asset)
+    // Use the urlForImage builder to create formatted URLs and srcsets
+    try {
+      defaultUrl = urlForImage(asset).url();
+
+      // Build avif/webp srcsets
+      avifSrcset = widths
+        .map(
+          (w) =>
+            `${urlForImage(asset)
+              .width(w)
+              .format("avif" as any)
+              .url()} ${w}w`,
+        )
+        .join(", ");
+      webpSrcset = widths
+        .map(
+          (w) =>
+            `${urlForImage(asset)
+              .width(w)
+              .format("webp" as any)
+              .url()} ${w}w`,
+        )
+        .join(", ");
+
+      // Try to read dimensions from typical Sanity shapes:
+      // - asset.metadata.dimensions
+      // - asset.asset.metadata.dimensions (if a wrapper object was passed)
+      imgWidth =
+        (asset as any)?.metadata?.dimensions?.width ??
+        (asset as any)?.asset?.metadata?.dimensions?.width ??
+        undefined;
+      imgHeight =
+        (asset as any)?.metadata?.dimensions?.height ??
+        (asset as any)?.asset?.metadata?.dimensions?.height ??
+        undefined;
+    } catch (err) {
+      // If the Sanity builder fails for some reason, fall back to string src if available
+      defaultUrl = defaultUrl ?? src ?? null;
+      avifSrcset = avifSrcset ?? null;
+      webpSrcset = webpSrcset ?? null;
+    }
+  } else {
+    // Unknown object shape — try to fallback to src prop if provided
+    defaultUrl = src ?? null;
+  }
+} else if (typeof src === "string") {
+  // No asset provided; use explicit src string
+  defaultUrl = src;
+
+  // Attempt naive extension swap to produce .avif and .webp alternatives
+  const m = src.match(/^(.*)\.(jpg|jpeg|png|webp|gif|svg|avif)$/i);
+  if (m) {
+    const base = m[1];
+    avifSrcset = widths.map((w) => `${base}.avif ${w}w`).join(", ");
+    webpSrcset = widths.map((w) => `${base}.webp ${w}w`).join(", ");
+  }
+}
+
+// If both srcsets are empty strings, normalize to null for easier checks
+if (avifSrcset === "") avifSrcset = null;
+if (webpSrcset === "") webpSrcset = null;
+---
+
+<picture>
+  {avifSrcset && <source srcset={avifSrcset} type="image/avif" sizes={sizes} />}
+  {webpSrcset && <source srcset={webpSrcset} type="image/webp" sizes={sizes} />}
+
+  {
+    defaultUrl ? (
+      // Use Astro's Image component for the fallback so you keep Astro optimizations + responsive srcsets
+      <Image
+        src={defaultUrl}
+        alt={alt}
+        sizes={sizes}
+        loading={loading}
+        decoding={decoding}
+        width={imgWidth ?? 800}
+        height={imgHeight ?? 600}
+        class={className || "w-full h-auto"}
+      />
+    ) : (
+      // No URL available; render a semantic img without src to avoid passing null to <Image />
+      <img
+        alt={alt}
+        loading={loading}
+        decoding={decoding}
+        sizes={sizes}
+        class={className || "w-full h-auto"}
+        aria-hidden={alt ? "false" : "true"}
+      />
+    )
+  }
+</picture>

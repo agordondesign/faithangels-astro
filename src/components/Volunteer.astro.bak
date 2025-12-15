@@ -1,0 +1,93 @@
+---
+import "../styles/global.css";
+import { Button } from "./ui/button";
+---
+
+<section class="w-full py-16 lg:py-30 bg-stone-200">
+  <div class="flex flex-col gap-6 w-full max-w-[80rem] mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <h2>Volunteer With Us</h2>
+      <h3>Become a Lifeline for a Senior in Need</h3>
+      <p class="mt-6">
+        Through our Community Outreach & Well-Being Program, volunteers help
+        restore dignity, safety, and connection for our seniors. Join us and
+        make a meaningful difference.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
+      <div
+        class="flex flex-col gap-6 justify-between w-full p-4 lg:p-6 border border-white rounded-lg bg-stone-100/50 shadow-xl"
+      >
+        <div class="space-y-4">
+          <div class="space-y-4">
+            <h3 class="text-xl font-medium">Lifeline for a Senior</h3>
+            <p>Combat isolation. Build meaningful connections.</p>
+          </div>
+          <p class="text-base">
+            Volunteers provide:
+            <ul class="list-disc ml-4 text-base">
+              <li>Weekly check-ins (phone or in-person)</li>
+              <li>Delivery of care packages</li>
+              <li>Spiritual encouragement and companionship</li>
+              <li>Assistance with light household tasks</li>
+            </ul>
+          </p>
+        </div>
+        <Button>Be a Lifeline for a Senior</Button>
+      </div>
+      <div
+        class="flex flex-col gap-6 justify-between w-full p-4 lg:p-6 border border-white rounded-lg bg-stone-100/50 shadow-xl"
+      >
+        <div class="space-y-6">
+          <div class="space-y-4">
+            <h3 class="text-xl font-medium">Meals of Love Program</h3>
+            <p>Nourishing bodies and hearts with warm meals and compassion.</p>
+          </div>
+          <p class="text-base">
+            We prepare and deliver hot meals to:
+            <ul class="list-disc ml-4 text-base">
+              <li>Seniors living alone</li>
+              <li>Seniors with limited mobility</li>
+              <li>Seniors in disaster-affected communities</li>
+            </ul>
+          </p>
+        </div>
+        <Button>Join the Meals of Love Team</Button>
+      </div>
+      <div
+        class="flex flex-col gap-6 justify-between w-full p-4 lg:p-6 border border-white rounded-lg bg-stone-100/50 shadow-xl"
+      >
+        <div class="space-y-4">
+          <div class="space-y-4">
+            <h3 class="text-xl font-medium">
+              Home Repair & Rebuilding Assistance
+            </h3>
+            <p>
+              Restoring safe, livable homes for seniors affected by Hurricane
+              Melissa.
+            </p>
+          </div>
+          <p class="text-base">
+            Many seniors still live in unsafe or damaged homes. Volunteers and
+            partners work together to restore safety and dignity.
+          </p>
+          <p class="text-base">
+            Activities include:
+            <ul class="list-disc ml-4 text-base">
+              <li>Supporting seniors with damaged or destroyed homes</li>
+              <li>
+                Prioritizing repairs to roofing, windows, doors, plumbing, and
+                living spaces
+              </li>
+              <li>
+                Collaborating with local contractors, skilled workers, and
+                community volunteers
+              </li>
+            </ul>
+          </p>
+        </div>
+        <Button>Volunteer for Home Repair & Rebuilding</Button>
+      </div>
+    </div>
+  </div>
+</section>

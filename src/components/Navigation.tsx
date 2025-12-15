@@ -6,10 +6,10 @@ export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navigation = [
-    { title: "Home", path: "/#home" },
     { title: "About", path: "/#about" },
     { title: "Relief", path: "/#relief" },
     { title: "Support", path: "/#support" },
+    { title: "Impact", path: "/#impact" },
     { title: "Contact", path: "/#contact" },
   ];
 

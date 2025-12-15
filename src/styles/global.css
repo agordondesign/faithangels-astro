@@ -245,4 +245,11 @@
   .prose li {
     @apply list-disc;
   }
+
+  givebutter-widget {
+    display: block;
+    width: 100% !important;
+    min-width: 300px !important;
+    box-sizing: border-box;
+  }
 }

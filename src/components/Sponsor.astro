@@ -1,0 +1,87 @@
+---
+import "../styles/global.css";
+import ResponsiveImage from "./ResponsiveImage.astro";
+import { Button } from "./ui/button";
+import GivebutterDailyMeals from "./GivebutterDailyMeals";
+---
+
+<section>
+  <div class="relative flex w-full h-auto overflow-hidden bg-primary-green">
+    <!-- left: any content that occupies the other half -->
+    <div
+      class="flex flex-col h-auto w-screen py-16 lg:py-30 px-6 lg:px-8 mx-auto z-10"
+    >
+      <div class="relative flex flex-col gap-6 w-full max-w-[80rem] mx-auto">
+        <div class="w-full lg:max-w-1/2 lg:px-8">
+          <h2 class="text-white">Sponsor a Senior</h2>
+          <p class="mt-6 text-white">
+            Too many seniors lack basic hygiene items, incontinence supplies,
+            and everyday essentials needed for dignity and comfort. Your
+            contribution ensures they are seen, supported, and never forgotten.
+          </p>
+          <p class="mt-4 text-white">
+            With Sponsor a Senior, you can provide a monthly CarePath Essentials
+            Kit that delivers immediate, meaningful impact.
+          </p>
+        </div>
+        <div class="w-full xl:max-w-5/6 lg:px-8">
+          <ul class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <li
+              class="flex flex-col justify-between h-full bg-white/80 border border-white/80 py-6 px-4 rounded-lg backdrop-blur-sm shadow-xl"
+            >
+              <div class="space-y-6">
+                <h3 class="text-xl font-medium">Support Daily Hot Meals</h3>
+                <p class="text-base">
+                  Many elders lost their kitchens or no longer have the strength
+                  to cook. Your support helps Faith Angels for Seniors provide
+                  warm, nourishing meals to those who need them most.
+                </p>
+              </div>
+              <GivebutterDailyMeals client:load />
+            </li>
+            <li
+              class="flex flex-col justify-between h-full bg-white/80 border border-white/80 py-6 px-4 rounded-lg backdrop-blur-sm shadow-xl"
+            >
+              <div class="space-y-6">
+                <h3 class="text-xl font-medium">Sponsor a Food Hamper</h3>
+                <p class="text-base">
+                  Instead of sending groceries, you can sponsor a hamper that
+                  Faith Angels assembles and distributes directly to seniors in
+                  need. Your sponsorship ensures a senior has reliable food
+                  support during this difficult time.
+                </p>
+              </div>
+              <Button>Sponsor Now</Button>
+            </li>
+            <li
+              class="flex flex-col justify-between h-full bg-white/80 border border-white/80 py-6 px-4 rounded-lg backdrop-blur-sm shadow-xl"
+            >
+              <div class="space-y-6">
+                <h3 class="text-xl font-medium">Sponsor a Hygiene Care Kit</h3>
+                <p class="text-base">
+                  Faith Angels is working to supply 500 Hygiene Care Kits each
+                  month to restore dignity and basic comfort for vulnerable
+                  seniors. Your sponsorship helps ensure seniors receive the
+                  essentials they rely on daily.
+                </p>
+              </div>
+              <Button>Sponsor Now</Button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="absolute flex flex-col lg:flex-row left-0 w-screen z-0">
+      <div class="w-full lg:w-1/2 mx-auto"></div>
+      <!-- right: image fills half the page width and full container height; cropped to image center -->
+      <div class="w-full lg:w-1/2 h-[450px] lg:h-screen">
+        <ResponsiveImage
+          asset="/images/shimo-yann-7nTFrV1xQGE-unsplash.avif"
+          alt="image placeholder alt text"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          class="w-full h-full object-cover object-center block opacity-20 lg:opacity-100 grayscale lg:grayscale-0"
+        />
+      </div>
+    </div>
+  </div>
+</section>
