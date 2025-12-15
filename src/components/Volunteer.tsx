@@ -112,10 +112,6 @@ export default function Volunteer() {
                 Home Repair Volunteer
               </Button>
               <p className="text-base">
-                Many seniors still live in unsafe or damaged homes. Volunteers
-                and partners work together to restore safety and dignity.
-              </p>
-              <p className="text-base">
                 <strong className="font-medium text-primary-brown">
                   Activities include:
                 </strong>
