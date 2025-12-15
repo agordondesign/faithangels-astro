@@ -96,21 +96,21 @@ export default function Volunteer() {
                   Home Repair & Rebuilding Assistance
                 </h3>
                 <p>
-                  Restoring safe, livable homes for seniors affected by Hurricane
-                  Melissa.
+                  Restoring safe, livable homes for seniors affected by
+                  Hurricane Melissa.
                 </p>
               </div>
               <p className="text-base">
-                Many seniors still live in unsafe or damaged homes. Volunteers and
-                partners work together to restore safety and dignity.
+                Many seniors still live in unsafe or damaged homes. Volunteers
+                and partners work together to restore safety and dignity.
               </p>
               <p className="text-base">
                 Activities include:
                 <ul className="list-disc ml-4 text-base">
                   <li>Supporting seniors with damaged or destroyed homes</li>
                   <li>
-                    Prioritizing repairs to roofing, windows, doors, plumbing, and
-                    living spaces
+                    Prioritizing repairs to roofing, windows, doors, plumbing,
+                    and living spaces
                   </li>
                   <li>
                     Collaborating with local contractors, skilled workers, and
@@ -137,7 +137,7 @@ export default function Volunteer() {
           aria-modal="true"
           aria-labelledby="volunteerModalTitle"
         >
-          <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg relative">
+          <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg relative overflow-y-auto max-h-[90vh]">
             <div className="flex items-start justify-between mb-4">
               <h2 id="volunteerModalTitle" className="text-xl font-bold">
                 {modalTitles[openModal]}
@@ -164,7 +164,7 @@ export default function Volunteer() {
                 </svg>
               </button>
             </div>
-            <VolunteerForm />
+            <VolunteerForm onSuccess={() => setOpenModal(null)} />
           </div>
         </div>
       )}

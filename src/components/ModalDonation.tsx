@@ -33,7 +33,7 @@ const ModalDonation: React.FC = () => {
           aria-modal="true"
           aria-labelledby="modalTitle"
         >
-          <div className="w-full max-w-2xl rounded-lg bg-white p-6 shadow-lg">
+          <div className="w-full max-w-2xl rounded-lg bg-white p-6 shadow-lg relative overflow-y-auto max-h-[90vh]">
             <div className="flex items-start justify-between">
               <h2 className="text-xl font-bold mb-4">Donation Intake Form</h2>
 
@@ -60,7 +60,7 @@ const ModalDonation: React.FC = () => {
               </button>
             </div>
             <div className="mt-4 w-full">
-              <DonationForm />
+              <DonationForm onSuccess={closeModal} />
             </div>
           </div>
         </div>

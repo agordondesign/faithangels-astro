@@ -1,9 +1,9 @@
 import React from "react";
 import SocialShare from "./SocialShare";
 import ModalPartner from "./ModalPartner";
-import GivebutterButton from "./GivebutterButton";
+//import GivebutterButton from "./GivebutterButton";
 import GivebutterSponsor from "./GivebutterSponsor";
-//import { Button } from "./ui/button";
+import { Button } from "./ui/button";
 import "../styles/global.css";
 //import ModalSponsor from "./ModalSponsor";
 //all custom forms and Givebutter integration
@@ -35,9 +35,9 @@ const InteractiveCards: React.FC = () => (
                   recovery.
                 </p>
               </div>
-              <div className="mt-6">
-                <GivebutterButton />
-              </div>
+              <a href="#support">
+                <Button className="w-full">Give Hope Today</Button>
+              </a>
             </div>
           </div>
         </div>
@@ -63,9 +63,9 @@ const InteractiveCards: React.FC = () => (
                   in need.
                 </p>
               </div>
-              <div className="mt-6">
-                <GivebutterSponsor />
-              </div>
+              <a href="#sponsor">
+                <Button className="w-full">Sponsor a Senior</Button>
+              </a>
             </div>
           </div>
         </div>
@@ -119,9 +119,9 @@ const InteractiveCards: React.FC = () => (
                   are invited to join us.
                 </p>
               </div>
-              <div className="mt-6">
-                <ModalPartner />
-              </div>
+              <a href="#volunteer">
+                <Button className="w-full">Join Our Mission</Button>
+              </a>
             </div>
           </div>
         </div>

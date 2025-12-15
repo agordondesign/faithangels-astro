@@ -28,6 +28,14 @@ export default function SpecialThanks(): JSX.Element {
       urlLabel: "ashrecare.com",
       alt: "ASHRE Care Centre logo",
     },
+    {
+      img: "/svg/ag-design-logo.svg",
+      title: "A Gordon Design, LLC",
+      copy: "Faith Angels for Seniors sincerely thanks A Gordon Design, LLC for the design and hosting of our website, helping us strengthen our online presence and better connect with our community.",
+      url: "https://www.agordondesign.com/",
+      urlLabel: "agordondesign.com",
+      alt: "A Gordon Design logo",
+    },
   ];
 
   return (

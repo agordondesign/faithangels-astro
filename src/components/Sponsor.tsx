@@ -25,7 +25,7 @@ export default function Sponsor(): JSX.Element {
       <div className="relative flex w-full h-auto overflow-hidden bg-primary-green">
         {/* Content column */}
         <div className="flex flex-col h-auto w-screen py-16 lg:py-30 px-6 lg:px-8 mx-auto z-10">
-          <div className="relative flex flex-col gap-6 w-full max-w-[80rem] mx-auto">
+          <div className="relative flex flex-col gap-1 w-full max-w-[80rem] mx-auto">
             <div className="w-full lg:max-w-1/2 lg:px-8">
               <h2 className="text-white">Sponsor a Senior</h2>
               <p className="mt-6 text-white">
@@ -43,10 +43,16 @@ export default function Sponsor(): JSX.Element {
             <div className="w-full xl:max-w-5/6 lg:px-8">
               <ul className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
                 <li className="flex flex-col justify-between h-full bg-white/80 border border-white/80 py-6 px-4 rounded-lg backdrop-blur-sm shadow-xl">
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     <h3 className="text-xl font-medium">
                       Support Daily Hot Meals
                     </h3>
+                    <Button
+                      className="w-full"
+                      onClick={() => setOpenModal("meals")}
+                    >
+                      Help Feed Seniors Daily
+                    </Button>
                     <p className="text-base">
                       Many elders lost their kitchens or no longer have the
                       strength to cook. Your support helps Faith Angels for
@@ -54,14 +60,19 @@ export default function Sponsor(): JSX.Element {
                       them most.
                     </p>
                   </div>
-                  <Button onClick={() => setOpenModal("meals")}>Donate</Button>
                 </li>
 
                 <li className="flex flex-col justify-between h-full bg-white/80 border border-white/80 py-6 px-4 rounded-lg backdrop-blur-sm shadow-xl">
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     <h3 className="text-xl font-medium">
                       Sponsor a Food Hamper
                     </h3>
+                    <Button
+                      className="w-full"
+                      onClick={() => setOpenModal("hamper")}
+                    >
+                      Give a Food Hamper to a Senior
+                    </Button>
                     <p className="text-base">
                       Instead of sending groceries, you can sponsor a hamper
                       that Faith Angels assembles and distributes directly to
@@ -69,16 +80,19 @@ export default function Sponsor(): JSX.Element {
                       reliable food support during this difficult time.
                     </p>
                   </div>
-                  <Button onClick={() => setOpenModal("hamper")}>
-                    Sponsor Now
-                  </Button>
                 </li>
 
                 <li className="flex flex-col justify-between h-full bg-white/80 border border-white/80 py-6 px-4 rounded-lg backdrop-blur-sm shadow-xl">
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     <h3 className="text-xl font-medium">
                       Sponsor a Hygiene Care Kit
                     </h3>
+                    <Button
+                      className="w-full"
+                      onClick={() => setOpenModal("hygiene")}
+                    >
+                      Sponsor a Hygiene Care Kit
+                    </Button>
                     <p className="text-base">
                       Faith Angels is working to supply 500 Hygiene Care Kits
                       each month to restore dignity and basic comfort for
@@ -86,9 +100,6 @@ export default function Sponsor(): JSX.Element {
                       receive the essentials they rely on daily.
                     </p>
                   </div>
-                  <Button onClick={() => setOpenModal("hygiene")}>
-                    Sponsor Now
-                  </Button>
                 </li>
               </ul>
             </div>

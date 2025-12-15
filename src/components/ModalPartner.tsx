@@ -33,7 +33,7 @@ const ModalPartner: React.FC = () => {
           aria-modal="true"
           aria-labelledby="modalTitle"
         >
-          <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
+          <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg relative overflow-y-auto max-h-[90vh]">
             <div className="flex items-start justify-between">
               <h2 id="modalTitle" className="text-xl font-bold mb-4">
                 Partner with Us

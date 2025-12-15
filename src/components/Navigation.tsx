@@ -8,8 +8,8 @@ export default function Navigation() {
   const navigation = [
     { title: "About", path: "/#about" },
     { title: "Relief", path: "/#relief" },
-    { title: "Support", path: "/#support" },
-    { title: "Impact", path: "/#impact" },
+    { title: "Help", path: "/#help" },
+    { title: "Volunteer", path: "/#volunteer" },
     { title: "Contact", path: "/#contact" },
   ];
 
@@ -17,7 +17,7 @@ export default function Navigation() {
     <nav className="sticky top-0 left-0 border-b shadow-xl w-full pt-2 md:text-sm md:border-none z-50 bg-stone-100 px-6 lg:px-8">
       <div className="items-center px-4 max-w-[80rem] mx-auto md:flex">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <a href="/">
+          <a href="/#home">
             <img
               src="/svg/Faith Angels Logo V2.svg"
               alt="Logo"

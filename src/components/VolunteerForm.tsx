@@ -2,7 +2,11 @@ import { useState } from "react";
 import "../styles/global.css";
 //donation form
 
-export default function VolunteerForm() {
+type VolunteerFormProps = {
+  onSuccess?: () => void;
+};
+
+export default function VolunteerForm({ onSuccess }: VolunteerFormProps) {
   const [result, setResult] = useState("");
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -21,6 +25,9 @@ export default function VolunteerForm() {
     if (data.success) {
       setResult("Submitted Successfully");
       form.reset();
+      if (onSuccess) {
+        setTimeout(onSuccess, 1500); // Close modal after 1.5 seconds
+      }
     } else {
       setResult("Error");
     }

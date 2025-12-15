@@ -2,7 +2,11 @@ import { useState } from "react";
 import "../styles/global.css";
 //partner form
 
-export default function PartnerForm() {
+type PartnerFormProps = {
+  onSuccess?: () => void;
+};
+
+export default function PartnerForm({ onSuccess }: PartnerFormProps) {
   const [result, setResult] = useState("");
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -21,6 +25,7 @@ export default function PartnerForm() {
     if (data.success) {
       setResult("Submitted Successfully");
       form.reset();
+      if (onSuccess) setTimeout(onSuccess, 1500);
     } else {
       setResult("Error");
     }
